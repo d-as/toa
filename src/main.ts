@@ -41,6 +41,7 @@ const updateRaidLevelAndURL = (updateFromHash = false): void => {
       : INVOCATIONS.filter(invocation => isInvocationElementActive(getInvocationElement(invocation)));
 
   if (updateFromHash) {
+    INVOCATIONS.forEach(invocation => updateInvocation(invocation, false));
     activeInvocations.forEach(invocation => updateInvocation(invocation, true));
   } else {
     window.location.replace(`#${encodeInvocations(activeInvocations)}`);
